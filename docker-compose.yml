@@ -1,0 +1,11 @@
+services:
+  autoreviewbot:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    volumes:
+      - .:/app
+      - ./config:/app/config
+      - ./.secrets:/app/.secrets
+    ports:
+      - "8000:8000"

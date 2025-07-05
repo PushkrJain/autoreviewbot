@@ -1,0 +1,71 @@
+# rules/java_style_rules.yaml
+
+- id: JAVA-001
+  pattern: 'System\.out\.print'
+  severity: medium
+  suggestion: Use a logger instead of System.out.print for better logging practices.
+
+- id: JAVA-002
+  pattern: '==\s*null'
+  severity: high
+  suggestion: Avoid null checks using '=='. Use `Objects.isNull()` or `Optional`.
+
+- id: JAVA-003
+  pattern: '!=\s*null'
+  severity: high
+  suggestion: Avoid null checks using '!='. Use `Objects.nonNull()` or `Optional`.
+
+- id: JAVA-004
+  pattern: 'public\s+class\s+\w+\s+implements\s+Serializable'
+  severity: medium
+  suggestion: Ensure proper use of serialVersionUID with Serializable classes.
+
+- id: JAVA-005
+  pattern: 'catch\s*\(\s*Exception'
+  severity: high
+  suggestion: Catch specific exceptions instead of generic Exception to improve error handling.
+
+- id: JAVA-006
+  pattern: 'List<\s*\w+\s*>\s+\w+\s*=\s*new\s+ArrayList<\s*\w*\s*>\s*\(\s*\)'
+  severity: low
+  suggestion: Consider coding to interface — use `List` as type, not `ArrayList`.
+
+- id: JAVA-007
+  pattern: 'Vector<'
+  severity: medium
+  suggestion: Avoid using `Vector`, use `ArrayList` with synchronization if needed.
+
+- id: JAVA-008
+  pattern: 'public\s+\w+\s*\('
+  severity: medium
+  suggestion: Minimize the number of public methods. Consider reducing access scope if not needed.
+
+- id: JAVA-009
+  pattern: 'HashMap<'
+  severity: low
+  suggestion: Consider using `Map` interface to reduce coupling.
+
+- id: JAVA-010
+  pattern: '@Nullable|@NonNull'
+  severity: low
+  suggestion: Use Javax annotations consistently to avoid null-related bugs.
+
+- id: JAVA-011
+  pattern: 'implements\s+\w+Service'
+  severity: low
+  suggestion: Avoid unnecessary interfaces unless required by design (e.g., for polymorphism).
+
+- id: JAVA-012
+  pattern: 'equals\s*\('
+  severity: high
+  suggestion: Always override `hashCode()` when overriding `equals()` for value objects.
+
+- id: JAVA-013
+  pattern: 'for\s*\(\s*[^;]+;\s*[^;]+;\s*[^)]+\)\s*\{[^}]*\}'
+  severity: medium
+  suggestion: "Consider replacing imperative loop with Java Stream or lambda if applicable."
+
+- id: JAVA-014
+  pattern: '\bthis\.\w+\s*=\s*\w+\s*;'
+  severity: high
+  suggestion: "Avoid exposing mutable state; use defensive copying (e.g., new ArrayList<>(items))."

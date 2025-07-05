@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+pygithub
+requests
+pyyaml
+python-dotenv
+aiohttp
+pytest
+httpx
+pygithub

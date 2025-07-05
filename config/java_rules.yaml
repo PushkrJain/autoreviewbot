@@ -1,0 +1,12 @@
+rules:
+  - id: J001
+    tool: checkstyle
+    pattern: "MissingJavadocMethod"
+    severity: warning
+    suggestion: "Add Javadoc comments to all public methods."
+
+  - id: J002
+    tool: pmd
+    pattern: "UnusedLocalVariable"
+    severity: critical
+    suggestion: "Remove unused local variables to improve readability."
